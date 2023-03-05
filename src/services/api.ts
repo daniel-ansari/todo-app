@@ -1,6 +1,6 @@
 import { TodoDocument } from '@/models/todo';
 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = process.env.NEXT_PUBLIC_API_URI || '';
 
 export const getTodos = async (): Promise<TodoDocument[]> => {
   const res = await fetch(`${API_URL}/todos`);
