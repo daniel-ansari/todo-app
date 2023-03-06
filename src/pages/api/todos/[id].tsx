@@ -18,10 +18,11 @@ export default async function handler(
 
   } else if (req.method === 'PUT') {
     const {_id, title, completed} = req.body;
+    const opts = { new: true };
     const updatedTodo = await TodoModel.findOneAndUpdate(
       {_id},
-      {title},
-      {completed}
+      {title, completed},
+      opts
     )
     res.status(200).json(updatedTodo);
   } else if (req.method === 'DELETE') {
